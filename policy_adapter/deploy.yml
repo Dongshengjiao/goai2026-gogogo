@@ -1,0 +1,31 @@
+# XPolicyLab deploy.yml
+# XPolicyLab 据此启动 Policy Server
+
+# 策略运行时设置
+ckpt_setting: default
+device: cuda:0
+policy_class: goai2026_policy
+
+# 动作配置
+action_type: ee          # ee 或 joint
+chunk_size: 10           # 动作 chunk 大小
+temporal_agg: true       # 时间聚合
+
+# 服务器配置
+protocol: ws
+host: 0.0.0.0
+port: 9999
+
+# 超时与重试
+request_timeout_s: 120.0
+max_connect_attempts: 180
+connect_retry_delay_s: 5.0
+max_connect_seconds: 900.0
+connect_timeout_s: 30.0
+handshake_timeout_s: 60.0
+ws_ping_interval_s: 20.0
+ws_ping_timeout_s: 20.0
+close_timeout_s: 10.0
+
+# checkpoint 路径（相对 policy_adapter/ 目录或绝对路径）
+ckpt_dir: checkpoints/

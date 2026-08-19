@@ -1,0 +1,24 @@
+# Policy Server 部署配置
+# 提交到 https://xsparkai.com/goai-2026/apply 时填写这些值
+
+policy:
+  name: goai2026_policy       # 策略名（仅字母/数字/下划线）
+  action_type: ee             # ee 或 joint，必须与本地自测一致
+  ckpt_name: default          # checkpoint 标识
+
+server:
+  protocol: wss               # ws 或 wss（建议 wss + TLS）
+  host: ""                     # 公网 IP 或域名（不要用 localhost/127.0.0.1）
+  port: 9999                   # WebSocket 端口
+  bind_addr: "0.0.0.0"        # 服务器绑定地址（必须 0.0.0.0）
+
+  # 冷启动与超时
+  request_timeout_s: 120.0
+  max_connect_attempts: 180
+  connect_retry_delay_s: 5.0
+  max_connect_seconds: 900.0
+
+robodojo:
+  bench_name: RoboDojo
+  env_cfg_type: arx_x5
+  eval_env: RoboDojo

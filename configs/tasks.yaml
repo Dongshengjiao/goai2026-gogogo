@@ -1,0 +1,63 @@
+# GOAI 2026 RoboDojo Generalization 维度 · 12 个基础任务
+# 每个任务有标准配置和 _random 随机化配置，共 24 个评测配置
+# 任务详情见: https://robodojo-benchmark.com/doc/sim-tasks/
+
+tasks:
+  - name: stack_bowls
+    instruction: "Stack the three bowls together."
+    category: generalization
+    scoring:
+      - { score: 0, condition: "No two bowls are stacked correctly." }
+      - { score: 15, condition: "Any two bowls are stacked upright and the gripper is open." }
+      - { score: 100, condition: "All three bowls stacked, upright, bottom stable on table, robot returns to origin." }
+
+  - name: push_T
+    instruction: "Push the T-shaped object to the target pose."
+    category: generalization
+
+  - name: pack_objects_into_box
+    instruction: "Pack all objects into the box."
+    category: generalization
+
+  - name: fold_clothes
+    instruction: "Fold the clothes."
+    category: generalization
+
+  - name: hang_mugs
+    instruction: "Hang the mugs on the hooks."
+    category: generalization
+
+  - name: sweep_blocks
+    instruction: "Sweep the blocks into the target area."
+    category: generalization
+
+  - name: pour_liquid_into_cup
+    instruction: "Pour the liquid into the cup."
+    category: generalization
+
+  - name: make_toast
+    instruction: "Make toast."
+    category: generalization
+
+  - name: arrange_largest_number
+    instruction: "Arrange the blocks to form the largest possible number."
+    category: generalization
+
+  - name: sort_nesting_dolls_by_size
+    instruction: "Sort the nesting dolls by size."
+    category: generalization
+
+  - name: store_laptop_and_headphones
+    instruction: "Store the laptop and headphones."
+    category: generalization
+
+  - name: stack_blocks
+    instruction: "Stack the blocks."
+    category: generalization
+
+# 评测参数
+eval:
+  dimension: generalization
+  num_episodes: 1          # 冒烟测试用 1，正式评测由官方设定
+  action_type: ee          # ee（末端位姿）或 joint（关节角）
+  env_cfg_type: arx_x5     # 机器人本体配置

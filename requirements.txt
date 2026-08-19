@@ -1,0 +1,13 @@
+# ---- 必需依赖 ----
+numpy>=1.24
+pyyaml>=6.0
+scipy>=1.10
+websockets>=12.0
+msgpack>=1.0
+huggingface_hub>=0.20
+
+# ---- 可选：VLA 模型推理（缺失时 demo_policy 返回零动作）----
+torch>=2.1
+transformers>=4.36
+
+# ---- RoboDojo / Isaac Sim 依赖通过 RoboDojo install.sh 安装，不在此声明 ----
